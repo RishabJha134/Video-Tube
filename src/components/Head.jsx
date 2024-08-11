@@ -15,7 +15,7 @@ const Head = () => {
   const [showSuggestions, setShowSuggestions] = useState(false);
 
   const searchCache = useSelector((store) => store.search);
-  console.log(searchCache);
+  // (searchCache);
 
   /**
    * searchCache looks like this:-
@@ -53,11 +53,11 @@ const Head = () => {
 
   // Define the async function to get search suggestions
   async function getSearchSuggestions() {
-    console.log("API CALL -:" + searchQuery);
+    // ("API CALL -:" + searchQuery);
 
     const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
     const result = await data.json();
-    console.log(result);
+    // (result);
 
     setSuggestions(result[1]);
 

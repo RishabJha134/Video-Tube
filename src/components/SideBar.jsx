@@ -6,7 +6,7 @@ const SideBar = () => {
   // subscribe to redux store:-
   const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
 
-  //  console.log(isMenuOpen);
+  //  (isMenuOpen);
 
   if (!isMenuOpen) {
     return null;

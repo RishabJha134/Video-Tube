@@ -2,7 +2,7 @@ import React from "react";
 import Comment from "./Comment";
 
 const CommentsList = ({ list }) => {
-    console.log(list);
+    // (list);
     
   return (
     <>

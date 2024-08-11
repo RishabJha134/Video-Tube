@@ -9,7 +9,8 @@ const VideoContainer = () => {
 
   async function getPopularVideo() {
     const result = await axios.get(YOUTUBE_VIDEOS_API);
-    // console.log(result.data.items);
+    // (result)
+    // (result.data.items);
     setVideos(result.data.items);
   }
   useEffect(() => {
