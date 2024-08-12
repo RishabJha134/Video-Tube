@@ -31,16 +31,12 @@ const Head = () => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-
       // memoization technique:-
       if (searchCache[searchQuery]) {
         setSuggestions(searchCache[searchQuery]);
       } else {
         getSearchSuggestions();
       }
-
-
-
     }, 200);
 
     return () => {
@@ -62,9 +58,11 @@ const Head = () => {
     setSuggestions(result[1]);
 
     // update data in cache so that we will use this by memoization technique.
-    dispatch(cacheResults({
-      [searchQuery]: result[1],
-    }));
+    dispatch(
+      cacheResults({
+        [searchQuery]: result[1],
+      })
+    );
   }
 
   return (
@@ -78,14 +76,16 @@ const Head = () => {
             className="h-[1.5em] cursor-pointer"
             style={{ width: "50px" }}
           ></IoMenu>
-
-          {/* <Link to="/"> */}
-          <img
-            className="h-14"
-            src="https://www.freeiconspng.com/uploads/youtube-logo-png-transparent-image-5.png"
-            alt="youtube-logo"
-          />
-          {/* </Link> */}
+          <div className="flex justify-center items-center w-full bg-zinc-100 gap-1">
+            {/* <Link to="/"> */}
+            <img
+              className="h-8"
+              src="https://lh3.googleusercontent.com/rormhrw_yZt2v1OKZBaiFCSt8b8QU02kEKiuilfgnpGkOMQd87xm7b7SyIlGoHsL18M"
+              alt="youtube-logo"
+            />
+            <h1 className="w-[5vw] text-xl">VTube</h1>
+            {/* </Link> */}
+          </div>
         </div>
 
         <div className="w-[50vw] flex flex-col justify-center items-center ">
@@ -99,7 +99,6 @@ const Head = () => {
               value={searchQuery}
               onChange={(e) => {
                 setSearchQuery(e.target.value);
-
               }}
               onFocus={() => {
                 setShowSuggestions(true);
