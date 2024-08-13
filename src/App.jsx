@@ -1,47 +1,42 @@
 import { Provider } from "react-redux";
-import React, { Children } from "react";
+import React from "react";
 import Body from "./components/Body";
-import Head from "./components/Head";
 import store from "./utils/store";
-import { BrowserRouter, createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import MainContainer from "./components/MainContainer";
 import WatchPage from "./components/WatchPage";
 import SearchResultPage from "./components/SearchResultPage";
 
-const App = () => {
-  const appRouter = createBrowserRouter([
-    {
-      path: "/",
-      element: <Body />,
-      children: [
-        {
-          path: "/",
-          element: <MainContainer />,
-        },
-        {
-          path: "watch",
-          element: <WatchPage></WatchPage>,
-        },
-        {
-          path:"result",
-          element:<SearchResultPage></SearchResultPage>,
-        }
-      ],
-    },
-  ]);
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <Body />, // Head will be included in Body
+    children: [
+      {
+        path: "/",
+        element: (
+          <>
+            <MainContainer />
+          </>
+        ),
+      },
+      {
+        path: "watch",
+        element: <WatchPage />,
+      },
+      {
+        path: "search/:query",
+        element: <SearchResultPage />,
+      },
+    ],
+  },
+]);
 
+const App = () => {
   return (
-    <>
-      <Provider store={store}>
-        <div>
-          <BrowserRouter>
-          <Head></Head>
-          </BrowserRouter>
-          
-          <RouterProvider router={appRouter}></RouterProvider>
-        </div>
-      </Provider>
-    </>
+    <Provider store={store}>
+      <RouterProvider router={appRouter} />
+    </Provider>
   );
 };
 

@@ -1,12 +1,10 @@
-export const GOOGLE_API_KEY = "AIzaSyCU4VrweI7IYWTS3dS3InwzJX5onatzGtE";
-export const YOUTUBE_VIDEOS_API =
-  "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=IN&key=" +
-  GOOGLE_API_KEY;
+// Access environment variables using import.meta.env
+export const GOOGLE_API_KEY = import.meta.env.VITE_GOOGLE_API_KEY;
+export const YOUTUBE_VIDEOS_API = import.meta.env.VITE_YOUTUBE_VIDEOS_API + GOOGLE_API_KEY;
+export const YOUTUBE_SEARCH_API = import.meta.env.VITE_YOUTUBE_SEARCH_API;
 
-export const YOUTUBE_SEARCH_API =
-  "http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q=";
-
-// const YOUTUBE_SEARCH_RESULT_API
+// Other constants
 export const LIVE_CHAT_COUNT = 25;
 
-// export const YOUTUBE_SEARCH_RESULT_API = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=surfing&key="+GOOGLE_API_KEY;
+// Example of a full search API endpoint with the API key
+// export const YOUTUBE_SEARCH_RESULT_API = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=surfing&key=" + GOOGLE_API_KEY;
