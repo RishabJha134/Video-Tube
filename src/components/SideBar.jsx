@@ -14,7 +14,7 @@ const SideBar = () => {
   }
 
   return (
-    <div className="py-5 px-4 shadow-lg w-64 bg-zinc-200 text-black">
+    <div className="py-5 px-4  h-[100vh] sticky top-14 left-0  shadow-lg w-64 bg-zinc-200 text-black">
       <ul className="space-y-1">
         <li className="flex items-center p-2 rounded-lg hover:bg-zinc-400 transition cursor-pointer">
           <FaHome className="mr-3" />
@@ -31,7 +31,7 @@ const SideBar = () => {
           Subscriptions
         </li>
       </ul>
-<div className="w-[11vw] bg-black border border-zinc-500 mt-2">
+<div className="w-[11vw]  bg-black border border-zinc-500 mt-2">
 
 </div>
       <h1 className="font-bold pt-5">Explore</h1>

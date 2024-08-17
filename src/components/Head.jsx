@@ -64,7 +64,7 @@ const Head = () => {
   };
 
   return (
-    <div className="flex items-center justify-between px-4 py-2 bg-zinc-400 shadow-lg">
+    <div className="flex  sticky top-0 left-0 items-center justify-between px-4 py-2 bg-zinc-400 shadow-lg">
       <div className="flex items-center">
         <IoMenu
           onClick={toggleMenuHandler}
