@@ -1,6 +1,7 @@
 # Video Tube
 
-![Video Tube Icon](https://lh3.googleusercontent.com/rormhrw_yZt2v1OKZBaiFCSt8b8QU02kEKiuilfgnpGkOMQd87xm7b7SyIlGoHsL18M)
+<img src="https://lh3.googleusercontent.com/rormhrw_yZt2v1OKZBaiFCSt8b8QU02kEKiuilfgnpGkOMQd87xm7b7SyIlGoHsL18M" alt="Video Tube Icon" width="100" height="100" />
+
 
 ## Video Tube is a YouTube clone application that replicates the core functionalities and user interface of YouTube, with an emphasis on dark mode. This project utilizes YouTube APIs to deliver an experience similar to that of the original platform. It is built using modern web technologies including React.js, Redux, Tailwind CSS, and JavaScript.
 
@@ -53,7 +54,13 @@ npm install
 
 Create a .env file in the root directory and add your API keys:
 ```bash
+<<<<<<< HEAD
 REACT_APP_YOUTUBE_API_KEY=your_youtube_api_key
+=======
+VITE_GOOGLE_API_KEY=your_google_api_key
+VITE_YOUTUBE_VIDEOS_API=your_youtube_api_key
+VITE_YOUTUBE_SEARCH_API=your_youtube_search_api_key
+>>>>>>> eec69f78e3a381043d2a52be3f31ba0ca2602f27
 ```
 
 Start the development server:
@@ -130,7 +137,13 @@ To secure API keys and other sensitive information, this project utilizes enviro
 
 
 ```bash
+<<<<<<< HEAD
 REACT_APP_YOUTUBE_API_KEY=your_youtube_api_key
+=======
+VITE_GOOGLE_API_KEY=your_google_api_key
+VITE_YOUTUBE_VIDEOS_API=your_youtube_api_key
+VITE_YOUTUBE_SEARCH_API=your_youtube_search_api_key
+>>>>>>> eec69f78e3a381043d2a52be3f31ba0ca2602f27
 ```
 
 ## Contributing
