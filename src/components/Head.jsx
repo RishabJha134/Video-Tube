@@ -38,17 +38,20 @@ const Head = () => {
   }, [searchQuery]);
 
   const getSearchSuggestions = async () => {
-    const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
+    const data = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(YOUTUBE_SEARCH_API + searchQuery)}`);
     const result = await data.json();
-    setSuggestions(result[1]);
-
+    const suggestions = JSON.parse(result.contents);
+    setSuggestions(suggestions[1]);
+  
     dispatch(
       cacheResults({
-        [searchQuery]: result[1],
+        [searchQuery]: suggestions[1],
       })
     );
   };
-
+  
+  
+  
   const handleSuggestionClick = (suggestion) => {
     setSearchQuery(suggestion);
     setShowSuggestions(false);
