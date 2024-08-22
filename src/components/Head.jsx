@@ -38,7 +38,6 @@ const Head = () => {
   }, [searchQuery]);
 
   const getSearchSuggestions = async () => {
-    // console.log('Search API URL:', YOUTUBE_SEARCH_API);
     const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
     const result = await data.json();
     setSuggestions(result[1]);
@@ -51,65 +50,60 @@ const Head = () => {
   };
 
   const handleSuggestionClick = (suggestion) => {
-    setSearchQuery(suggestion); // Update input field with clicked suggestion
-    setShowSuggestions(false); // Hide suggestions dropdown
-    // alert("hello")
-    navigate(`/search/${encodeURIComponent(suggestion)}`); // Trigger search
+    setSearchQuery(suggestion);
+    setShowSuggestions(false);
+    navigate(`/search/${encodeURIComponent(suggestion)}`);
   };
 
   const handleSearch = (e) => {
+    e.preventDefault();
     if (searchQuery.trim() !== "") {
       navigate(`/search/${searchQuery}`);
     }
   };
 
   return (
-    <div className="flex  sticky top-0 left-0 items-center justify-between px-4 py-2 bg-zinc-400 shadow-lg">
+    <div className="flex sticky top-0 left-0 items-center justify-between px-4 py-2 bg-black shadow-md z-50">
       <div className="flex items-center">
         <IoMenu
           onClick={toggleMenuHandler}
-          className="h-8 w-[22px]  text-white cursor-pointer"
+          className="h-8 w-8 text-white cursor-pointer"
         />
         <Link to={"/"}>
-        <div className="ml-4">
-          <img
-            className="h-9"
-            src="https://lh3.googleusercontent.com/rormhrw_yZt2v1OKZBaiFCSt8b8QU02kEKiuilfgnpGkOMQd87xm7b7SyIlGoHsL18M"
-            alt="V-logo"
-          />
-        </div>
+        <div className="ml-4 flex items-center gap-2">
+  <img
+    className="h-9"
+    src="https://lh3.googleusercontent.com/rormhrw_yZt2v1OKZBaiFCSt8b8QU02kEKiuilfgnpGkOMQd87xm7b7SyIlGoHsL18M"
+    alt="V-logo"
+  />
+  <h1 className="text-white text-xl font-bold flex items-center">
+    <span className="text-[#40CBCB]">V</span> Tube
+  </h1>
+</div>
+
         </Link>
-        
       </div>
 
-      <div className="relative  flex items-center w-[600px] ">
-        <form onSubmit={handleSearch} className="flex w-full ">
+      <div className="relative flex items-center w-[40%] ">
+        <form onSubmit={handleSearch} className="flex w-full">
           <input
             type="text"
-            className="w-full text-white h-10 px-4 py-2  bg-[#181818] rounded-l-full focus:outline-none"
+            className="w-full text-white h-10 border-l border-t border-b border-gray-500 px-4 py-2 bg-[#121212] rounded-l-full focus:outline-none"
             placeholder="Search"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             onFocus={() => setShowSuggestions(true)}
-            // onBlur={() => {
-            //   setTimeout(() => {
-            //    const intervalId = setShowSuggestions(false);
-
-            //     return ()=>{
-            //       clearInterval(intervalId);
-            //     }
-            //   }, 200);
-            // }}
           />
           <button
             type="submit"
-            className="flex items-center justify-center w-16 h-10 bg-[#323232] rounded-r-full"
+            className="flex items-center border border-gray-500 justify-center w-16 h-10 bg-[#303030] rounded-r-full"
           >
             <CiSearch size={20} className="text-white" />
           </button>
         </form>
+
         {showSuggestions && suggestions.length > 0 && (
-          <div className="absolute top-[35px] left-0 w-full mt-2 bg-[#212121] rounded-xl shadow-lg z-50">
+          <div className="absolute top-[40px] left-0 w-full mt-2 bg-[#282828] rounded-xl shadow-lg z-50">
             <ul className="p-2 text-white">
               {suggestions.map((item) => (
                 <li
@@ -127,7 +121,7 @@ const Head = () => {
       </div>
 
       <div className="flex items-center">
-        <FaUserCircle className="h-6 text-white cursor-pointer" />
+        <FaUserCircle className="h-8 w-8 text-white cursor-pointer" />
       </div>
     </div>
   );

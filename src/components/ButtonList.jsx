@@ -4,29 +4,26 @@ import Button from "./Button";
 const ButtonList = () => {
   const buttonList = [
     "All",
-    "music",
-    "news",
-    "sports",
+    "Music",
+    "News",
+    "Sports",
     "Education",
     "Entertainment",
     "Business",
-    "Olympic",
-
+    "Olympics",
     "Health",
     "Science",
     "Technology",
-    "Sports",
     "DSA",
     "Engineering",
   ];
+
   return (
-    <>
-      <div className="flex">
-        {buttonList.map((item, index) => {
-          return <Button key={index} name={item} />;
-        })}
-      </div>
-    </>
+    <div className="flex flex-wrap gap-2 p-4 bg-black">
+      {buttonList.map((item, index) => (
+        <Button key={index} name={item} />
+      ))}
+    </div>
   );
 };
 

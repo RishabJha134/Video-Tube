@@ -30,35 +30,44 @@ const SearchResultPage = () => {
   }, [query]);
 
   return (
-    <div className="p-4">
-      {loading && <p>Loading...</p>}
-      {error && <p className="text-red-500">Error: {error}</p>}
+    <div className="p-4 bg-black min-h-screen text-white">
+      {loading && (
+        <p className="text-center text-lg font-semibold text-gray-400">
+          Loading...
+        </p>
+      )}
+      {error && (
+        <p className="text-center text-lg font-semibold text-red-500 bg-[#2a2a2a] p-3 rounded-lg shadow-lg">
+          Error: {error}
+        </p>
+      )}
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-4">
         {results.length > 0 ? (
           results.map((item) => (
             <div
               key={item.id.videoId}
-              className="bg-black border border-white p-4 rounded-lg shadow-lg"
+              className="bg-[#282828] border border-gray-700 p-3 rounded-lg shadow-sm hover:shadow-lg transition-shadow duration-300"
             >
-              <Link
-                to={"/watch?v=" + item.id.videoId}
-                className="flex flex-col"
-              >
+              <Link to={"/watch?v=" + item.id.videoId} className="block">
                 <img
                   src={item.snippet.thumbnails.medium.url}
                   alt={item.snippet.title}
-                  className="w-full h-40 object-cover rounded mb-4 hover:scale-95"
+                  className="w-full h-48 object-cover rounded-lg mb-2"
                 />
-                <h3 className="text-lg font-semibold text-white">
+                <h3 className="text-lg font-semibold text-white line-clamp-2">
                   {item.snippet.title}
                 </h3>
-                <p className="text-gray-400 mt-2">{item.snippet.description}</p>
+                <p className="text-base text-gray-400 mt-1 line-clamp-3">
+                  {item.snippet.description}
+                </p>
               </Link>
             </div>
           ))
         ) : (
-          <p>No results found.</p>
+          <p className="text-center text-lg font-semibold text-gray-400">
+            No results found.
+          </p>
         )}
       </div>
     </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import CommentsList from './CommentsList';
 
-// each object each individual comment.
+// Sample comments data
 const CommentsData = [
   {
     name: "Akshay Saini",
@@ -19,7 +19,6 @@ const CommentsData = [
           {
             name: "Nikhil Pandey",
             text: "I also agree with you",
-
             replies: [],
           },
         ],
@@ -45,9 +44,9 @@ const CommentsData = [
 
 const CommentsContainer = () => {
   return (
-    <div className="m-5 p-2">
-      <h1 className="text-2xl font-bold">Comments: </h1>
-      <CommentsList list={CommentsData}></CommentsList>
+    <div className="m-5 p-2 bg-gray-800 text-white rounded-lg shadow-lg">
+      <h1 className="text-2xl font-bold mb-4">Comments:</h1>
+      <CommentsList list={CommentsData} />
     </div>
   )
 };

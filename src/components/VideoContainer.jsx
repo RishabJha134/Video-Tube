@@ -35,41 +35,30 @@ const VideoContainer = () => {
   // Infinite scrolling effect
   useEffect(() => {
     const handleScroll = () => {
-      console.log("window ka height only" + window.innerHeight);
-      console.log(
-        "scroll ke scrolling ka height only" +
-          document.documentElement.scrollTop
-      );
-      console.log("full window height" + document.documentElement.scrollHeight);
       if (
         window.innerHeight + window.scrollY + 1 >=
         document.documentElement.scrollHeight
       ) {
         setIsShowLoading(true); // Show loading spinner
-        // jab tak hum next page ko api call nahi kr rhe tab tak user ko loading effect dikhega.
         fetchVideos(nextPageToken);
-        console.log(
-          "touch hote hi api call karna hai sir for infinite scrolling"
-        );
       }
     };
-    
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [nextPageToken]);
 
   return (
-    <div className="flex flex-wrap">
+    <div className="flex flex-wrap p-4 bg-black min-h-screen">
       {videos.map((item, index) => (
-        <Link key={index} to={`/watch?v=${item.id}`}>
-          <VideoCard info={item}></VideoCard>
+        <Link key={index} to={`/watch?v=${item.id}`} className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-2">
+          <VideoCard info={item} />
         </Link>
       ))}
       {isShowLoading && (
-        <h1 className="text-2xl text-red-500 font-bold flex justify-center items-center">
-          Loading...
-        </h1>
+        <div className="w-full flex justify-center items-center py-4">
+          <h1 className="text-2xl text-gray-400 font-bold">Loading...</h1>
+        </div>
       )}
     </div>
   );

@@ -1,13 +1,10 @@
 import React from "react";
 
 const Button = ({ name }) => {
-  // (name);
   return (
-    <div> 
-      <button className="px-2 py-1 m-2 rounded-lg bg-gray-200 text-black border border-black">
-        {name}
-      </button>
-    </div>
+    <button className="  font-semibold py-2 px-4 rounded-xl bg-zinc-800 transition duration-200 text-white hover:bg-white hover:text-black">
+      {name}
+    </button>
   );
 };
 
