@@ -54,13 +54,9 @@ npm install
 
 Create a .env file in the root directory and add your API keys:
 ```bash
-<<<<<<< HEAD
-REACT_APP_YOUTUBE_API_KEY=your_youtube_api_key
-=======
 VITE_GOOGLE_API_KEY=your_google_api_key
 VITE_YOUTUBE_VIDEOS_API=your_youtube_api_key
 VITE_YOUTUBE_SEARCH_API=your_youtube_search_api_key
->>>>>>> eec69f78e3a381043d2a52be3f31ba0ca2602f27
 ```
 
 Start the development server:
@@ -137,13 +133,9 @@ To secure API keys and other sensitive information, this project utilizes enviro
 
 
 ```bash
-<<<<<<< HEAD
-REACT_APP_YOUTUBE_API_KEY=your_youtube_api_key
-=======
 VITE_GOOGLE_API_KEY=your_google_api_key
 VITE_YOUTUBE_VIDEOS_API=your_youtube_api_key
 VITE_YOUTUBE_SEARCH_API=your_youtube_search_api_key
->>>>>>> eec69f78e3a381043d2a52be3f31ba0ca2602f27
 ```
 
 ## Contributing
